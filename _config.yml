@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://569258yin.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -64,6 +64,13 @@ pagination_dir: page   #分页目录
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: icarus
+
+#Feed RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
