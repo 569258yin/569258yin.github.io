@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://569258yin.github.io/"/>
-  <updated>2016-11-22T13:25:53.856Z</updated>
+  <updated>2016-11-22T13:51:13.845Z</updated>
   <id>http://569258yin.github.io/</id>
   
   <author>
@@ -20,18 +20,26 @@
     <link href="http://569258yin.github.io/2016/11/22/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B/"/>
     <id>http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/</id>
     <published>2016-11-21T23:44:12.000Z</published>
-    <updated>2016-11-22T13:25:53.856Z</updated>
+    <updated>2016-11-22T13:51:13.845Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言·"><a href="#前言·" class="headerlink" title="前言·"></a>前言·</h3><p>利用hexo在Github上搭建个人博客是我从我对象那里知道的，她学的前端，我学的Java，一直没了解过这个东西，前几天发现了，果断喜欢上了，以前都是在CSDN上写博客。<br>然后，我就开始了研究，到了现在，终于好了，网上教程确实很多啊，但是其间也有一些问题，然后昨天，我女朋友问了几个问题(女友还是小白啊，毕竟妹子)，在添加主题的地方。<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git clone http:.......git themes/icuals</div><div class="line">cd themes/icuals</div><div class="line">git pull</div></pre></td></tr></table></figure></p>
 <p>这样我们觉得很简单的，对于刚学的妹子来说确实是一个挑战啊！！对于Lunix命令基本不懂得啊.So，我就写了这篇博客给我女友看，是不是很有爱的啊。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>先放我看过的教程，都可以提供参考的。<br><a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">使用hexo，如果换了电脑怎么更新博客？</a><br><a href="https://jayzangwill.github.io/blog/2016/07/31/hexo-github%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">hexo+github快速搭建个人博客</a></p>
 <h3 id="Github项目创建"><a href="#Github项目创建" class="headerlink" title="Github项目创建"></a>Github项目创建</h3><ul>
-<li><p>1.注册Github账号<br><a href="https://github.com/" target="_blank" rel="external">Github官网</a><br><img src="img/2016-11-22/github_sign_up.png" alt="注册账号"><br>点击上图的<strong> sign up </strong><br>然后就进入下图填写个人注册信息的界面，上面还有总步骤说明<br><img src="img/2016-11-22/github_signup_info.png" alt="注册账号详情"><br>然后把三个步骤走完就OK啦！这时候你就拥有了你的Github账号和远程仓库。</p>
+<li><p>1.注册Github账号<br><a href="https://github.com/" target="_blank" rel="external">Github官网</a></p>
+<img src="/2016/11/22/Hexo搭建博客小白教程/github_sign_up.png" alt="[注册账号]" title="[注册账号]">
+<p>点击上图的<strong> sign up </strong><br>然后就进入下图填写个人注册信息的界面，上面还有总步骤说明</p>
+<img src="/2016/11/22/Hexo搭建博客小白教程/github_signup_info.png" alt="[注册账号详情]" title="[注册账号详情]">
+<p>然后把三个步骤走完就OK啦！这时候你就拥有了你的Github账号和远程仓库。</p>
 </li>
-<li><p>2.创建项目</p>
+<li><p>2.创建项目<br>在你登录过的Github界面，右上方找到一个 <strong>+</strong> 号，然后点击，再选择new repository,就是新建项目啦。</p>
+<img src="/2016/11/22/Hexo搭建博客小白教程/20161122214120.png" alt="[创建项目引导]" title="[创建项目引导]">
+<p>然后就是新建项目界面，输入你要新建的项目名称，这里我们要建一个博客，所有名字要为你的Github账号加上<strong>.github.io</strong><br>比如我的Github账号为<strong>569258yin</strong>，那我创建的项目名称就为<strong>569258yin.github.io</strong>,下图可以看到我的项目名称已经存在了。</p>
+<img src="/2016/11/22/Hexo搭建博客小白教程/20161122214451.png" alt="[]" title="[]">
+<p>然后描述内容可以不写，或者写…（<em>对了，免费版的Github账号都是public的，也就是你的项目被人都可以看到，但是别人是没有权利修改的</em>）</p>
 </li>
 </ul>
-]]></content>
+<h3 id="本地搭建Hexo博客"><a href="#本地搭建Hexo博客" class="headerlink" title="本地搭建Hexo博客"></a>本地搭建Hexo博客</h3>]]></content>
     
     <summary type="html">
     
@@ -70,30 +78,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>发表博客</title>
-    <link href="http://569258yin.github.io/2016/11/20/%E5%8F%91%E8%A1%A8%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://569258yin.github.io/2016/11/20/发表博客/</id>
-    <published>2016-11-20T03:46:25.000Z</published>
-    <updated>2016-11-21T15:08:18.506Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-发表文章"><a href="#1-发表文章" class="headerlink" title="1.发表文章"></a>1.发表文章</h3><pre><code>``` hexo new &quot;发表文章&quot; ``` 
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-发表文章&quot;&gt;&lt;a href=&quot;#1-发表文章&quot; class=&quot;headerlink&quot; title=&quot;1.发表文章&quot;&gt;&lt;/a&gt;1.发表文章&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;``` hexo new &amp;quot;发表文章&amp;quot; ``` 
-&lt;/code&gt;&lt;/pr
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://569258yin.github.io/categories/Hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://569258yin.github.io/tags/hexo/"/>
     
   </entry>
   

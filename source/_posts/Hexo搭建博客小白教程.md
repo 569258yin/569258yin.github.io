@@ -27,11 +27,23 @@ git pull
 
 * 1.注册Github账号
 [Github官网](https://github.com/)
-![注册账号](img/2016-11-22/github_sign_up.png)
+{% asset_img github_sign_up.png [注册账号] %}
 点击上图的** sign up ** 
 然后就进入下图填写个人注册信息的界面，上面还有总步骤说明
-![注册账号详情](img/2016-11-22/github_signup_info.png)
+{% asset_img github_signup_info.png [注册账号详情] %}
 然后把三个步骤走完就OK啦！这时候你就拥有了你的Github账号和远程仓库。
 
 * 2.创建项目
+在你登录过的Github界面，右上方找到一个 **+** 号，然后点击，再选择new repository,就是新建项目啦。
+{% asset_img 20161122214120.png [创建项目引导] %}
+然后就是新建项目界面，输入你要新建的项目名称，这里我们要建一个博客，所有名字要为你的Github账号加上**.github.io**
+比如我的Github账号为**569258yin**，那我创建的项目名称就为**569258yin.github.io**,下图可以看到我的项目名称已经存在了。
+{% asset_img 20161122214451.png [] %}
+然后描述内容可以不写，或者写...（*对了，免费版的Github账号都是public的，也就是你的项目被人都可以看到，但是别人是没有权利修改的*）
+
+### 本地搭建Hexo博客
+
+
+
+
 
