@@ -57,9 +57,68 @@ git pull
 然后点击create branch:hexo就可以了。
 {% asset_img 20161123080021.png []%}
 
+* 4.设置hexo分支为默认分支
+点击项目设置,进到如下界面
+{% asset_img 20161123205751.png [] %}
+然后再选择Branch设置，可以看到当前默认分支为master，点击选择我们创建的hexo，然后点击右边update就可以了
+{% asset_img 20161123205923.png []%}
+
+
 ### 本地搭建Hexo博客
-* 1.在本地创建一个文件夹，比如我的取名为hexo，然后 
+* 1.在本地创建一个文件夹，比如我的取名为hexo，然后鼠标右键git branch，调出git控制台工具。如果你还没有装过这个软件，
+那就需要先安装[软件下载地址](https://git-for-windows.github.io),不会安装的同学可以参考
+[廖雪峰的Git安装教程及使用说明](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000)
+打开控制台后输入
 
+`
+git clone https://github.com/569258yin/test.github.io.git
+`
 
+克隆你在Github创建的项目到本地，后面的网址是我的，你的项目网址在Github网站项目可以查看到，如下图：
+{% asset_img 20161123210805.png [] %}
+克隆完成后就会在hexo生成对应的项目文件夹
+{% asset_img 20161123210936.png [] %}
 
+* 2.安装Node.js
 
+下载地址：[Node官网](https://nodejs.org/en/)，下载任意版本，安装就可以了，这个很简单。安装完成可以在git bash控制台输入 **node -v ** 如果能显示版本号就说明安装成功！
+
+* 3.安装hexo插件
+
+在git bash中利用node 自带的包管理器进行安装：
+
+```
+输入 npm install -g hexo(或者npm i -g hexo)
+```
+
+* 4.初始化hexo
+
+首先需要将git bash 当前文件路径选到你的项目根目录下，不会命令的可以直接将当前的git bash关掉，然后直接鼠标点进去项目文件夹，鼠标右键选择 git bash 就可以了
+然后执行
+
+```
+hexo init
+```
+
+这一步，我只能说超级慢的啊，视网络情况，反正我是等了很久.......
+
+* 5.测试是否安装完毕
+
+```
+输入  hexo generate(或 hexo g)
+```
+
+初始化本地文件，这时候hexo会把我们的源文件转化为静态网页，
+
+然后
+
+```
+输入  hexo server(或 hexo s)
+```
+
+{% asset_img 20161123213034.png [] %}
+意思是在本地创建一个服务器用了展示我们生成的网页，这一步是非常方便的，以后我们有任何修改只需在本地查看，确保正确后再发布到github上。
+
+之后打开你电脑上的浏览器，输入http:\\localhost:4000访问，能显示就说明大功告成啦，安装完毕！！！
+
+### 将本地项目源文件上传到Github上
