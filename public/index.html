@@ -92,7 +92,7 @@ var _hmt = _hmt || [];
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -111,10 +111,10 @@ var _hmt = _hmt || [];
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'pos',
+            POSTS: 'Articles',
             PAGES: 'Pages',
-            CATEGORIES: 'kategori',
-            TAGS: 'tag',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -145,7 +145,7 @@ var _hmt = _hmt || [];
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
     </div>
 
                 </td>
@@ -165,16 +165,16 @@ var _hmt = _hmt || [];
             <h2 id="name">Hao Yin</h2>
             <h3 id="title">只想简简单单的做自己</h3>
             <span id="location"><i class="fa fa-map-marker"></i>shanghai, China</span>
-            <a id="follow" target="_blank" href="https://github.com/569258yin/">IKUTI</a>
+            <a id="follow" target="_blank" href="https://github.com/569258yin/">SUIVRE</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 2
-                <span>pos</span>
+                <span>Articles</span>
             </div>
             <div class="article-info-block">
                 1
-                <span>tag</span>
+                <span>Tag</span>
             </div>
         </div>
         
@@ -281,8 +281,19 @@ var _hmt = _hmt || [];
 <img src="/2016/11/22/Hexo搭建博客小白教程/20161122214451.png" alt="[]" title="[]">
 <p>然后描述内容可以不写，或者写…（<em>对了，免费版的Github账号都是public的，也就是你的项目被人都可以看到，但是别人是没有权利修改的</em>）</p>
 </li>
+<li><p>3.创建分支</p>
+<pre><code>创建分支为了我们能够在不同的电脑上方便修改博客，首先，Github上master主分支存放
+的是hexo将我们的源文件转化生成的静态网页，是不存储我们实际操作的源文件的，我刚开
+始也不知道，然后去了公司，从Github上克隆了我的项目，准备做修改呢，结果全是静态网
+页，并不能直接修改，所有参考了知乎上大神给的方法。
+</code></pre><p>  <strong> 项目分为两个分支：master主分支用了存放静态网页，hexo(名字随意)分支用了存放项目源文件 </strong></p>
+</li>
 </ul>
-<h3 id="本地搭建Hexo博客"><a href="#本地搭建Hexo博客" class="headerlink" title="本地搭建Hexo博客"></a>本地搭建Hexo博客</h3>
+<p>当刚创好分支，如果你还没添加任何描述，项目界面是这样的<br><br>如果你的也是，就点图中红色标注的<strong>README</strong>，然后就可以添加一些描述啦。这里可以简单写一句话，关于如何使用README，可另行百度。<br>如果你的界面是下面的这种，那就可以直接点<strong>Branch:master</strong>,(<em>branch的意思就是分支,master代表主分支</em>)，在文本框中输入hexo（分支名）<br>然后点击create branch:hexo就可以了。<br><img src="/2016/11/22/Hexo搭建博客小白教程/20161123080021.png" alt="[]" title="[]"></p>
+<h3 id="本地搭建Hexo博客"><a href="#本地搭建Hexo博客" class="headerlink" title="本地搭建Hexo博客"></a>本地搭建Hexo博客</h3><ul>
+<li>1.在本地创建一个文件夹，比如我的取名为hexo，然后 </li>
+</ul>
+
         
         </div>
         <footer class="article-footer">
@@ -329,7 +340,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/">Komentar</a>
+        <a href="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/">Commentaires</a>
     
 
         </footer>
@@ -428,7 +439,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://569258yin.github.io/2016/11/21/hello-world/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://569258yin.github.io/2016/11/21/hello-world/">Komentar</a>
+        <a href="http://569258yin.github.io/2016/11/21/hello-world/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://569258yin.github.io/2016/11/21/hello-world/">Commentaires</a>
     
 
         </footer>
@@ -443,7 +454,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">terbaru</h3>
+        <h3 class="widget-title">Récents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -492,7 +503,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">kategori</h3>
+        <h3 class="widget-title">Catégories</h3>
         <div class="widget">
             <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul>
         </div>
@@ -501,7 +512,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">arsip</h3>
+        <h3 class="widget-title">Archives</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
@@ -510,7 +521,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tag</h3>
+        <h3 class="widget-title">Tags</h3>
         <div class="widget">
             <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
         </div>
@@ -519,7 +530,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">awan tag</h3>
+        <h3 class="widget-title">Nuage de tags</h3>
         <div class="widget tagcloud">
             <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
         </div>
@@ -528,7 +539,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">tautan</h3>
+        <h3 class="widget-title">Liens</h3>
         <div class="widget">
             <ul>
                 
