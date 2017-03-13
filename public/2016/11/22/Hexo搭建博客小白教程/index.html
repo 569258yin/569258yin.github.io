@@ -20,7 +20,8 @@
 <meta property="og:image" content="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/20161123205923.png">
 <meta property="og:image" content="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/20161123210805.png">
 <meta property="og:image" content="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/20161123210936.png">
-<meta property="og:updated_time" content="2016-11-23T13:19:19.473Z">
+<meta property="og:image" content="http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/20161123213034.png">
+<meta property="og:updated_time" content="2017-03-13T12:39:20.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建博客小白教程">
 <meta name="twitter:description" content="前言·利用hexo在Github上搭建个人博客是我从我对象那里知道的，她学的前端，我学的Java，一直没了解过这个东西，前几天发现了，果断喜欢上了，以前都是在CSDN上写博客。然后，我就开始了研究，到了现在，终于好了，网上教程确实很多啊，但是其间也有一些问题，然后昨天，我女朋友问了几个问题(女友还是小白啊，毕竟妹子)，在添加主题的地方。比如：1234git clone http:.......gi">
@@ -180,12 +181,12 @@ var _hmt = _hmt || [];
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                2
+                3
                 <span>Articles</span>
             </div>
             <div class="article-info-block">
-                1
-                <span>Tag</span>
+                2
+                <span>Tags</span>
             </div>
         </div>
         
@@ -318,13 +319,24 @@ var _hmt = _hmt || [];
 <li>3.安装hexo插件</li>
 </ul>
 <p>在git bash中利用node 自带的包管理器进行安装：</p>
-<p><code>输入 npm install -g hexo(或者npm i -g hexo)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入 npm install -g hexo(或者npm i -g hexo)</div></pre></td></tr></table></figure>
 <ul>
 <li>4.初始化hexo</li>
 </ul>
 <p>首先需要将git bash 当前文件路径选到你的项目根目录下，不会命令的可以直接将当前的git bash关掉，然后直接鼠标点进去项目文件夹，鼠标右键选择 git bash 就可以了<br>然后执行</p>
-<p><code>hexo init</code></p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<p>这一步，我只能说超级慢的啊，视网络情况，反正我是等了很久…….</p>
+<ul>
+<li>5.测试是否安装完毕</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入  hexo generate(或 hexo g)</div></pre></td></tr></table></figure>
+<p>初始化本地文件，这时候hexo会把我们的源文件转化为静态网页，</p>
+<p>然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入  hexo server(或 hexo s)</div></pre></td></tr></table></figure>
+<img src="/2016/11/22/Hexo搭建博客小白教程/20161123213034.png" alt="[]" title="[]">
+<p>意思是在本地创建一个服务器用了展示我们生成的网页，这一步是非常方便的，以后我们有任何修改只需在本地查看，确保正确后再发布到github上。</p>
+<p>之后打开你电脑上的浏览器，输入http:\localhost:4000访问，能显示就说明大功告成啦，安装完毕！！！</p>
+<h3 id="将本地项目源文件上传到Github上"><a href="#将本地项目源文件上传到Github上" class="headerlink" title="将本地项目源文件上传到Github上"></a>将本地项目源文件上传到Github上</h3>
         
         </div>
         <footer class="article-footer">
@@ -380,11 +392,15 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-    
-        <a href="/2016/11/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Plus ancien</strong>
-            <div class="article-nav-title">Hello World</div>
+        <a href="/2017/03/13/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus récent</strong>
+            <div class="article-nav-title">
+                
+                    Hello World
+                
+            </div>
         </a>
+    
     
 </nav>
 
@@ -452,6 +468,44 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/03/13/javaweb与app实现文件上传/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2017/03/13/javaweb与app实现文件上传/" class="title">javaweb与app实现文件上传</a></p>
+                            <p class="item-date"><time datetime="2017-03-13T12:54:27.000Z" itemprop="datePublished">2017-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/13/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/13/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-03-13T12:39:20.548Z" itemprop="datePublished">2017-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/11/22/Hexo搭建博客小白教程/" class="thumbnail">
     
     
@@ -468,25 +522,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/11/21/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/11/21/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2016-11-21T13:56:29.614Z" itemprop="datePublished">2016-11-21</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -496,7 +531,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">Catégories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -505,7 +540,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">Archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -514,7 +549,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">Tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-app/">--Java --app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -523,7 +558,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">Nuage de tags</h3>
         <div class="widget tagcloud">
-            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+            <a href="/tags/Java-app/" style="font-size: 10px;">--Java --app</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
         </div>
     </div>
 
@@ -551,7 +586,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 Hao Yin<br>
+            &copy; 2017 Hao Yin<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>

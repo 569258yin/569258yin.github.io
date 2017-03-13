@@ -1,28 +1,283 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hao Yin Blog</title>
-  <subtitle>记录生活，分享感动</subtitle>
-  <link href="/atom.xml" rel="self"/>
-  
-  <link href="http://569258yin.github.io/"/>
-  <updated>2017-03-13T13:37:20.657Z</updated>
-  <id>http://569258yin.github.io/</id>
-  
-  <author>
-    <name>Hao Yin</name>
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>javaweb与app实现文件上传</title>
-    <link href="http://569258yin.github.io/2017/03/13/javaweb%E4%B8%8Eapp%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://569258yin.github.io/2017/03/13/javaweb与app实现文件上传/</id>
-    <published>2017-03-13T12:54:27.000Z</published>
-    <updated>2017-03-13T13:37:20.657Z</updated>
+    <title>javaweb与app实现文件上传 | Hao Yin Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="前言·最近在做毕设，然后app需要发送图文消息，就需要在app端实现图片上传，在web端实现文件接收，中间遇到点小意外，记在这里。
+1.开发所需第三方jar包app端：HttpURLConnection(jdk自带)
+web端: commons-fileupload
+maven路径：
+12345 &amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;commons-fileupload">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaweb与app实现文件上传">
+<meta property="og:url" content="http://569258yin.github.io/2017/03/13/javaweb与app实现文件上传/index.html">
+<meta property="og:site_name" content="Hao Yin Blog">
+<meta property="og:description" content="前言·最近在做毕设，然后app需要发送图文消息，就需要在app端实现图片上传，在web端实现文件接收，中间遇到点小意外，记在这里。
+1.开发所需第三方jar包app端：HttpURLConnection(jdk自带)
+web端: commons-fileupload
+maven路径：
+12345 &amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;commons-fileupload">
+<meta property="og:updated_time" content="2017-03-13T13:37:20.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaweb与app实现文件上传">
+<meta name="twitter:description" content="前言·最近在做毕设，然后app需要发送图文消息，就需要在app端实现图片上传，在web端实现文件接收，中间遇到点小意外，记在这里。
+1.开发所需第三方jar包app端：HttpURLConnection(jdk自带)
+web端: commons-fileupload
+maven路径：
+12345 &amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;commons-fileupload">
     
-    <content type="html"><![CDATA[<h3 id="前言·"><a href="#前言·" class="headerlink" title="前言·"></a>前言·</h3><p>最近在做毕设，然后app需要发送图文消息，就需要在app端实现图片上传，在web端实现文件接收，中间遇到点小意外，记在这里。</p>
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hao Yin Blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/logo.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d14fa115c77b4d5f7a9c2a47c2153feb";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hao Yin Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/./archives">归档</a>
+                
+                    <a class="main-nav-link" href="/./categories">分类</a>
+                
+                    <a class="main-nav-link" href="/./tags">标签</a>
+                
+                    <a class="main-nav-link" href="/./about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Articles',
+            PAGES: 'Pages',
+            CATEGORIES: 'Catégories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/./archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/./categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/./tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/./about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">Hao Yin</h2>
+            <h3 id="title">只想简简单单的做自己</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/569258yin/">SUIVRE</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                3
+                <span>Articles</span>
+            </div>
+            <div class="article-info-block">
+                2
+                <span>Tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/569258yin/569258yin.github.io" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.zhihu.com/people/yin-hao-45-22" target="_blank" title="gg-circle" class=tooltip>
+                            <i class="fa fa-gg-circle"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-javaweb与app实现文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            javaweb与app实现文件上传
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/13/javaweb与app实现文件上传/">
+            <time datetime="2017-03-13T12:54:27.000Z" itemprop="datePublished">2017-03-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java-app/">--Java --app</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="前言·"><a href="#前言·" class="headerlink" title="前言·"></a>前言·</h3><p>最近在做毕设，然后app需要发送图文消息，就需要在app端实现图片上传，在web端实现文件接收，中间遇到点小意外，记在这里。</p>
 <h3 id="1-开发所需第三方jar包"><a href="#1-开发所需第三方jar包" class="headerlink" title="1.开发所需第三方jar包"></a>1.开发所需第三方jar包</h3><pre><code>app端：HttpURLConnection(jdk自带)
 web端: commons-fileupload
 maven路径：
@@ -35,128 +290,293 @@ maven路径：
 到文件，但是就是从request解析的时候为空，二是批量上传的时候发现只能上传成功一张，服务器并没有解析出多个文件。
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/**</div><div class="line"> * 上传图片</div><div class="line"> * @param files</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">public static String uploadImage(List&lt;File&gt; files) &#123;</div><div class="line">    URL url;</div><div class="line">    DataOutputStream ds = null;</div><div class="line">    BufferedReader bufferedReader = null;</div><div class="line">    //为了分割</div><div class="line">    String end = &quot;\r\n&quot;;</div><div class="line">    String Hyphens = &quot;--&quot;;</div><div class="line">    String boundary = &quot;WUm4580jbtwfJhNp7zi1djFEO3wNNm&quot;;</div><div class="line">    try &#123;</div><div class="line">        if (files != null &amp;&amp; files.size() &gt; 0) &#123;</div><div class="line">            url = new URL(ConstantValue.URL_ROOT + ConstantValue.IMAGE_UPLOAD);</div><div class="line">            // 打开链接</div><div class="line">            URLConnection connection = url.openConnection();</div><div class="line">            HttpURLConnection httpURLConnection = (HttpURLConnection) connection;</div><div class="line">            httpURLConnection.setRequestMethod(&quot;POST&quot;);</div><div class="line">            httpURLConnection.setReadTimeout(30000);</div><div class="line">            httpURLConnection.setRequestProperty(&quot;Connection&quot;, &quot;Keep-Alive&quot;);</div><div class="line">            httpURLConnection.setRequestProperty(&quot;Content-type&quot;, &quot;multipart/form-data;boundary=&quot; + boundary);</div><div class="line">            httpURLConnection.setRequestProperty(&quot;charset&quot;, &quot;utf-8&quot;);</div><div class="line">            httpURLConnection.setUseCaches(false);</div><div class="line">            httpURLConnection.setDoInput(true);</div><div class="line">            httpURLConnection.setDoOutput(true);</div><div class="line">            ds = new DataOutputStream(httpURLConnection.getOutputStream());</div><div class="line">            for (int i = 0;i&lt;files.size();i++) &#123;</div><div class="line">                File file = files.get(i);</div><div class="line">                //注意加上分隔符此时只有一个Hyphens</div><div class="line">                ds.writeBytes(Hyphens + boundary + end);</div><div class="line">                //这里的格式不能改变，我将name换了别的名字结果服务器端不能正常接收文件</div><div class="line">                ds.writeBytes(&quot;Content-Disposition: form-data; &quot;</div><div class="line">                        + &quot;name=\&quot;file&quot;+i+&quot;\&quot;;filename=\&quot;&quot; + file.getName() + &quot;\&quot;&quot; + end);</div><div class="line">                ds.writeBytes(end);</div><div class="line">                FileInputStream fStream = new FileInputStream(file);</div><div class="line">                byte[] buff = new byte[1024];</div><div class="line">                int length = -1;</div><div class="line">                while((length = fStream.read(buff)) != -1)&#123;</div><div class="line">                    ds.write(buff,0,length);</div><div class="line">                &#125;</div><div class="line">                ds.writeBytes(end);</div><div class="line">                fStream.close();</div><div class="line">            &#125;</div><div class="line">            //结尾分隔符，注意此处为Hyphens + boundary + Hyphens+ end,有两个Hyphens，我刚开始没注意，结果就是不能批量上传文件</div><div class="line">            ds.writeBytes(Hyphens + boundary + Hyphens+ end);</div><div class="line">            ds.flush();</div><div class="line">            bufferedReader = new BufferedReader(</div><div class="line">                    new InputStreamReader(httpURLConnection.getInputStream(),&quot;UTF-8&quot;));</div><div class="line">            String jsonString2 = bufferedReader.readLine();</div><div class="line">            Logger.d(jsonString2);</div><div class="line">            return jsonString2;</div><div class="line">        &#125;</div><div class="line">    &#125; catch (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;finally &#123;</div><div class="line">        if(ds != null)&#123;</div><div class="line">            try &#123;</div><div class="line">                ds.close();</div><div class="line">            &#125; catch (Exception e) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(bufferedReader != null)&#123;</div><div class="line">            try &#123;</div><div class="line">                bufferedReader.close();</div><div class="line">            &#125; catch (Exception e) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>有时候觉得自己还是不够认真，在网上搜了这方面的经验和代码，结果自己实现的时候会因为一些稍微不一样的地方导致各种不成功，就很无奈，后来就慢慢排查，细心一点就可以找到问题的关键了，<br>暂时只写了一种客户端的实现上传的办法，还有一种是利用httpClient进行上传文件，代码稍有不同，之后再补上。关于分隔符的问题还没搞懂，没有去研究其实现原理，可能也存在误解，但这份代码时测试的没有问题的。</p>
-]]></content>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
     
-    <summary type="html">
+        <a href="http://569258yin.github.io/2017/03/13/javaweb与app实现文件上传/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://569258yin.github.io/2017/03/13/javaweb与app实现文件上传/">Commentaires</a>
     
-      &lt;h3 id=&quot;前言·&quot;&gt;&lt;a href=&quot;#前言·&quot; class=&quot;headerlink&quot; title=&quot;前言·&quot;&gt;&lt;/a&gt;前言·&lt;/h3&gt;&lt;p&gt;最近在做毕设，然后app需要发送图文消息，就需要在app端实现图片上传，在web端实现文件接收，中间遇到点小意外，记在这里。&lt;/p&gt;
+
+        </footer>
+    </div>
     
-    </summary>
-    
-      <category term="Java" scheme="http://569258yin.github.io/categories/Java/"/>
-    
-    
-      <category term="--Java --app" scheme="http://569258yin.github.io/tags/Java-app/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://569258yin.github.io/2017/03/13/hello-world/"/>
-    <id>http://569258yin.github.io/2017/03/13/hello-world/</id>
-    <published>2017-03-13T12:39:20.548Z</published>
-    <updated>2017-03-13T12:39:20.548Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo搭建博客小白教程</title>
-    <link href="http://569258yin.github.io/2016/11/22/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B/"/>
-    <id>http://569258yin.github.io/2016/11/22/Hexo搭建博客小白教程/</id>
-    <published>2016-11-21T23:44:12.000Z</published>
-    <updated>2017-03-13T12:39:20.539Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言·"><a href="#前言·" class="headerlink" title="前言·"></a>前言·</h3><p>利用hexo在Github上搭建个人博客是我从我对象那里知道的，她学的前端，我学的Java，一直没了解过这个东西，前几天发现了，果断喜欢上了，以前都是在CSDN上写博客。<br>然后，我就开始了研究，到了现在，终于好了，网上教程确实很多啊，但是其间也有一些问题，然后昨天，我女朋友问了几个问题(女友还是小白啊，毕竟妹子)，在添加主题的地方。<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git clone http:.......git themes/icuals</div><div class="line">cd themes/icuals</div><div class="line">git pull</div></pre></td></tr></table></figure></p>
-<p>这样我们觉得很简单的，对于刚学的妹子来说确实是一个挑战啊！！对于Lunix命令基本不懂得啊.So，我就写了这篇博客给我女友看，是不是很有爱的啊。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>先放我看过的教程，都可以提供参考的。<br><a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">使用hexo，如果换了电脑怎么更新博客？</a><br><a href="https://jayzangwill.github.io/blog/2016/07/31/hexo-github%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">hexo+github快速搭建个人博客</a></p>
-<h3 id="Github项目创建"><a href="#Github项目创建" class="headerlink" title="Github项目创建"></a>Github项目创建</h3><ul>
-<li><p>1.注册Github账号<br><a href="https://github.com/" target="_blank" rel="external">Github官网</a></p>
-<img src="/2016/11/22/Hexo搭建博客小白教程/github_sign_up.png" alt="[注册账号]" title="[注册账号]">
-<p>点击上图的<strong> sign up </strong><br>然后就进入下图填写个人注册信息的界面，上面还有总步骤说明</p>
-<img src="/2016/11/22/Hexo搭建博客小白教程/github_signup_info.png" alt="[注册账号详情]" title="[注册账号详情]">
-<p>然后把三个步骤走完就OK啦！这时候你就拥有了你的Github账号和远程仓库。</p>
-</li>
-<li><p>2.创建项目<br>在你登录过的Github界面，右上方找到一个 <strong>+</strong> 号，然后点击，再选择new repository,就是新建项目啦。</p>
-<img src="/2016/11/22/Hexo搭建博客小白教程/20161122214120.png" alt="[创建项目引导]" title="[创建项目引导]">
-<p>然后就是新建项目界面，输入你要新建的项目名称，这里我们要建一个博客，所有名字要为你的Github账号加上<strong>.github.io</strong><br>比如我的Github账号为<strong>569258yin</strong>，那我创建的项目名称就为<strong>569258yin.github.io</strong>,下图可以看到我的项目名称已经存在了。</p>
-<img src="/2016/11/22/Hexo搭建博客小白教程/20161122214451.png" alt="[]" title="[]">
-<p>然后描述内容可以不写，或者写…（<em>对了，免费版的Github账号都是public的，也就是你的项目被人都可以看到，但是别人是没有权利修改的</em>）</p>
-</li>
-<li><p>3.创建分支</p>
-<pre><code>创建分支为了我们能够在不同的电脑上方便修改博客，首先，Github上master主分支存放
-的是hexo将我们的源文件转化生成的静态网页，是不存储我们实际操作的源文件的，我刚开
-始也不知道，然后去了公司，从Github上克隆了我的项目，准备做修改呢，结果全是静态网
-页，并不能直接修改，所有参考了知乎上大神给的方法。
-</code></pre><p>  <strong> 项目分为两个分支：master主分支用了存放静态网页，hexo(名字随意)分支用了存放项目源文件 </strong></p>
-</li>
-</ul>
-<p>当刚创好分支，如果你还没添加任何描述，项目界面是这样的<br><br>如果你的也是，就点图中红色标注的<strong>README</strong>，然后就可以添加一些描述啦。这里可以简单写一句话，关于如何使用README，可另行百度。<br>如果你的界面是下面的这种，那就可以直接点<strong>Branch:master</strong>,(<em>branch的意思就是分支,master代表主分支</em>)，在文本框中输入hexo（分支名）<br>然后点击create branch:hexo就可以了。<br><img src="/2016/11/22/Hexo搭建博客小白教程/20161123080021.png" alt="[]" title="[]"></p>
-<ul>
-<li>4.设置hexo分支为默认分支<br>点击项目设置,进到如下界面<img src="/2016/11/22/Hexo搭建博客小白教程/20161123205751.png" alt="[]" title="[]">
-然后再选择Branch设置，可以看到当前默认分支为master，点击选择我们创建的hexo，然后点击右边update就可以了<img src="/2016/11/22/Hexo搭建博客小白教程/20161123205923.png" alt="[]" title="[]">
-</li>
-</ul>
-<h3 id="本地搭建Hexo博客"><a href="#本地搭建Hexo博客" class="headerlink" title="本地搭建Hexo博客"></a>本地搭建Hexo博客</h3><ul>
-<li>1.在本地创建一个文件夹，比如我的取名为hexo，然后鼠标右键git branch，调出git控制台工具。如果你还没有装过这个软件，<br>那就需要先安装<a href="https://git-for-windows.github.io" target="_blank" rel="external">软件下载地址</a>,不会安装的同学可以参考<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000" target="_blank" rel="external">廖雪峰的Git安装教程及使用说明</a><br>打开控制台后输入</li>
-</ul>
-<p><code>git clone https://github.com/569258yin/test.github.io.git</code></p>
-<p>克隆你在Github创建的项目到本地，后面的网址是我的，你的项目网址在Github网站项目可以查看到，如下图：<br><img src="/2016/11/22/Hexo搭建博客小白教程/20161123210805.png" alt="[]" title="[]"><br>克隆完成后就会在hexo生成对应的项目文件夹<br><img src="/2016/11/22/Hexo搭建博客小白教程/20161123210936.png" alt="[]" title="[]"></p>
-<ul>
-<li>2.安装Node.js</li>
-</ul>
-<p>下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="external">Node官网</a>，下载任意版本，安装就可以了，这个很简单。安装完成可以在git bash控制台输入 <strong>node -v </strong> 如果能显示版本号就说明安装成功！</p>
-<ul>
-<li>3.安装hexo插件</li>
-</ul>
-<p>在git bash中利用node 自带的包管理器进行安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入 npm install -g hexo(或者npm i -g hexo)</div></pre></td></tr></table></figure>
-<ul>
-<li>4.初始化hexo</li>
-</ul>
-<p>首先需要将git bash 当前文件路径选到你的项目根目录下，不会命令的可以直接将当前的git bash关掉，然后直接鼠标点进去项目文件夹，鼠标右键选择 git bash 就可以了<br>然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<p>这一步，我只能说超级慢的啊，视网络情况，反正我是等了很久…….</p>
-<ul>
-<li>5.测试是否安装完毕</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入  hexo generate(或 hexo g)</div></pre></td></tr></table></figure>
-<p>初始化本地文件，这时候hexo会把我们的源文件转化为静态网页，</p>
-<p>然后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入  hexo server(或 hexo s)</div></pre></td></tr></table></figure>
-<img src="/2016/11/22/Hexo搭建博客小白教程/20161123213034.png" alt="[]" title="[]">
-<p>意思是在本地创建一个服务器用了展示我们生成的网页，这一步是非常方便的，以后我们有任何修改只需在本地查看，确保正确后再发布到github上。</p>
-<p>之后打开你电脑上的浏览器，输入http:\localhost:4000访问，能显示就说明大功告成啦，安装完毕！！！</p>
-<h3 id="将本地项目源文件上传到Github上"><a href="#将本地项目源文件上传到Github上" class="headerlink" title="将本地项目源文件上传到Github上"></a>将本地项目源文件上传到Github上</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言·&quot;&gt;&lt;a href=&quot;#前言·&quot; class=&quot;headerlink&quot; title=&quot;前言·&quot;&gt;&lt;/a&gt;前言·&lt;/h3&gt;&lt;p&gt;利用hexo在Github上搭建个人博客是我从我对象那里知道的，她学的前端，我学的Java，一直没了解过这个东西，前几天发现了，果断
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://569258yin.github.io/categories/Hexo/"/>
+        
+<nav id="article-nav">
     
     
-      <category term="hexo" scheme="http://569258yin.github.io/tags/hexo/"/>
+        <a href="/2017/03/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Plus ancien</strong>
+            <div class="article-nav-title">Hello World</div>
+        </a>
     
-  </entry>
-  
-</feed>
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2017/03/13/javaweb与app实现文件上传/" data-title="javaweb与app实现文件上传" data-url="http://569258yin.github.io/2017/03/13/javaweb与app实现文件上传/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Récents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/13/javaweb与app实现文件上传/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2017/03/13/javaweb与app实现文件上传/" class="title">javaweb与app实现文件上传</a></p>
+                            <p class="item-date"><time datetime="2017-03-13T12:54:27.000Z" itemprop="datePublished">2017-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/13/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/13/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2017-03-13T12:39:20.548Z" itemprop="datePublished">2017-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/22/Hexo搭建博客小白教程/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Hexo/">Hexo</a></p>
+                            <p class="item-title"><a href="/2016/11/22/Hexo搭建博客小白教程/" class="title">Hexo搭建博客小白教程</a></p>
+                            <p class="item-date"><time datetime="2016-11-21T23:44:12.000Z" itemprop="datePublished">2016-11-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Catégories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-app/">--Java --app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Nuage de tags</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Java-app/" style="font-size: 10px;">--Java --app</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">Liens</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Hao Yin<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'haoyinblog'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
